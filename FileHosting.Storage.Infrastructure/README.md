@@ -1,0 +1,1 @@
+dotnet ef migrations add Init -s ../FileHosting.Storage.Api -o ./Data/Migrations

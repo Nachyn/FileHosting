@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileHosting.Storage.AppCore", "FileHosting.Storage.AppCore\FileHosting.Storage.AppCore.csproj", "{68192CCE-B085-42C3-86D3-8CDC47E60D0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileHosting.Storage.Infrastructure", "FileHosting.Storage.Infrastructure\FileHosting.Storage.Infrastructure.csproj", "{52327742-F166-44D4-A05C-CC8A95E2FEA6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileHosting.Storage.Api", "FileHosting.Storage.Api\FileHosting.Storage.Api.csproj", "{1D49F8B9-933E-4A99-8A81-27CD9E97B13E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68192CCE-B085-42C3-86D3-8CDC47E60D0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68192CCE-B085-42C3-86D3-8CDC47E60D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68192CCE-B085-42C3-86D3-8CDC47E60D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68192CCE-B085-42C3-86D3-8CDC47E60D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52327742-F166-44D4-A05C-CC8A95E2FEA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52327742-F166-44D4-A05C-CC8A95E2FEA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52327742-F166-44D4-A05C-CC8A95E2FEA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52327742-F166-44D4-A05C-CC8A95E2FEA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D49F8B9-933E-4A99-8A81-27CD9E97B13E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D49F8B9-933E-4A99-8A81-27CD9E97B13E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D49F8B9-933E-4A99-8A81-27CD9E97B13E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D49F8B9-933E-4A99-8A81-27CD9E97B13E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
