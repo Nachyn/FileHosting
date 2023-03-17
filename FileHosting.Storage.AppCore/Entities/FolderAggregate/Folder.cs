@@ -1,4 +1,4 @@
-﻿using FileHosting.Storage.AppCore.Interfaces;
+﻿using FileHosting.Shared.AppCore.Interfaces;
 
 // ReSharper disable UnusedAutoPropertyAccessor.Local
 

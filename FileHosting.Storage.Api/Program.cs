@@ -1,4 +1,3 @@
-using FileHosting.Storage.AppCore.Interfaces;
 using FileHosting.Storage.Infrastructure;
 using FileHosting.Storage.Infrastructure.Data;
 
@@ -10,8 +9,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureStorageInfrastructure(builder.Configuration);
-builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
-builder.Services.AddScoped(typeof(IReadRepository<>), typeof(EfRepository<>));
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())

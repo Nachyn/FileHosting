@@ -1,6 +1,6 @@
 ﻿using Ardalis.Specification;
 
-namespace FileHosting.Storage.AppCore.Interfaces;
+namespace FileHosting.Shared.AppCore.Interfaces;
 
 public interface IRepository<T> : IRepositoryBase<T> where T : class, IAggregateRoot
 {

@@ -6,6 +6,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileHosting.Storage.Infrast
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileHosting.Storage.Api", "FileHosting.Storage.Api\FileHosting.Storage.Api.csproj", "{1D49F8B9-933E-4A99-8A81-27CD9E97B13E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileHosting.Shared.AppCore", "FileHosting.Shared.AppCore\FileHosting.Shared.AppCore.csproj", "{13421F91-A2AD-4781-AEF4-3BCA482BB908}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileHosting.Shared.Infrastructure", "FileHosting.Shared.Infrastructure\FileHosting.Shared.Infrastructure.csproj", "{E2CA9676-34D3-4428-A4FC-2CD39BA27DB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{03D1571F-F76E-425B-99B4-ED43696170F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{B3966D4B-FF30-4F8A-8CB2-5158A5604F65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +32,20 @@ Global
 		{1D49F8B9-933E-4A99-8A81-27CD9E97B13E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D49F8B9-933E-4A99-8A81-27CD9E97B13E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D49F8B9-933E-4A99-8A81-27CD9E97B13E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13421F91-A2AD-4781-AEF4-3BCA482BB908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13421F91-A2AD-4781-AEF4-3BCA482BB908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13421F91-A2AD-4781-AEF4-3BCA482BB908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13421F91-A2AD-4781-AEF4-3BCA482BB908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2CA9676-34D3-4428-A4FC-2CD39BA27DB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2CA9676-34D3-4428-A4FC-2CD39BA27DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2CA9676-34D3-4428-A4FC-2CD39BA27DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2CA9676-34D3-4428-A4FC-2CD39BA27DB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{13421F91-A2AD-4781-AEF4-3BCA482BB908} = {03D1571F-F76E-425B-99B4-ED43696170F4}
+		{E2CA9676-34D3-4428-A4FC-2CD39BA27DB1} = {03D1571F-F76E-425B-99B4-ED43696170F4}
+		{1D49F8B9-933E-4A99-8A81-27CD9E97B13E} = {B3966D4B-FF30-4F8A-8CB2-5158A5604F65}
+		{68192CCE-B085-42C3-86D3-8CDC47E60D0F} = {B3966D4B-FF30-4F8A-8CB2-5158A5604F65}
+		{52327742-F166-44D4-A05C-CC8A95E2FEA6} = {B3966D4B-FF30-4F8A-8CB2-5158A5604F65}
 	EndGlobalSection
 EndGlobal

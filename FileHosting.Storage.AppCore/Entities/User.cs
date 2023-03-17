@@ -1,4 +1,4 @@
-﻿using FileHosting.Storage.AppCore.Interfaces;
+﻿using FileHosting.Shared.AppCore.Interfaces;
 
 namespace FileHosting.Storage.AppCore.Entities;
 
