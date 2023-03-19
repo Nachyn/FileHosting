@@ -1,4 +1,4 @@
-﻿namespace FileHosting.Storage.AppCore.Entities;
+﻿namespace FileHosting.Shared.AppCore.Entities;
 
 public abstract class BaseEntity
 {

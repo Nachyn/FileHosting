@@ -12,7 +12,7 @@ public static class Dependencies
     public static void ConfigureStorageInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         AddDatabase(services, configuration);
-        services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
+        services.AddSingleton(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
     }
 
     private static void AddDatabase(IServiceCollection services, IConfiguration configuration)

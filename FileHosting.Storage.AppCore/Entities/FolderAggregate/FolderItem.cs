@@ -1,5 +1,6 @@
 ﻿// ReSharper disable UnusedAutoPropertyAccessor.Local
 
+using FileHosting.Shared.AppCore.Entities;
 using FileHosting.Shared.AppCore.Validation;
 using FileHosting.Storage.AppCore.Errors;
 

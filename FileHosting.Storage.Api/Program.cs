@@ -1,14 +1,25 @@
+using FileHosting.Shared.Api.Middlewares;
+using FileHosting.Shared.AppCore.UserAccessor;
+using FileHosting.Storage.Api.Configuration;
+using FileHosting.Storage.Api.UserAccessor;
 using FileHosting.Storage.Infrastructure;
 using FileHosting.Storage.Infrastructure.Data;
+using FluentValidation;
+using MinimalApi.Endpoint.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddEndpoints();
+builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDomainServices();
 builder.Services.ConfigureStorageInfrastructure(builder.Configuration);
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<IUserAccessor, MockUserAccessor>();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
@@ -35,6 +46,8 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.UseMiddleware<ExceptionMiddleware>();
+
+app.MapEndpoints();
 
 app.Run();
