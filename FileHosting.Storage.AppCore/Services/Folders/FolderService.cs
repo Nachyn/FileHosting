@@ -3,8 +3,10 @@ using FileHosting.Shared.AppCore.Interfaces;
 using FileHosting.Shared.AppCore.UserAccessor;
 using FileHosting.Storage.AppCore.Entities.FolderAggregate;
 using FileHosting.Storage.AppCore.Interfaces;
+using FileHosting.Storage.AppCore.Specifications;
+using FileHosting.Storage.AppCore.Specifications.Folders;
 
-namespace FileHosting.Storage.AppCore.Services;
+namespace FileHosting.Storage.AppCore.Services.Folders;
 
 public class FolderService : IFolderService
 {
@@ -25,5 +27,11 @@ public class FolderService : IFolderService
         result.ThrowIfFailure();
 
         await _folderRepository.AddAsync(result.Value);
+    }
+
+    public async Task<IReadOnlyCollection<FolderVm>> GetAllFolders()
+    {
+        var folderWithItemsSpecification = new UserFolderWithItemsSpecification(_userAccessor.UserId);
+        return await _folderRepository.ListAsync(folderWithItemsSpecification);
     }
 }
