@@ -23,7 +23,7 @@ public class CreateFolderEndpoint : IEndpoint<IResult, CreateFolderRequest>
             })
             .Accepts<CreateFolderRequest>(MediaTypeNames.Application.Json)
             .Produces(StatusCodes.Status200OK)
-            .WithTags("FolderEndpoints");
+            .WithTags(EndpointTags.FolderEndpoints);
     }
 
     public async Task<IResult> HandleAsync(CreateFolderRequest request)

@@ -16,7 +16,7 @@ builder.Services.AddAuthorization();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDomainServices();
-builder.Services.ConfigureStorageInfrastructure(builder.Configuration);
+builder.Services.ConfigureStorageInfrastructure(builder.Configuration, Path.Combine(builder.Environment.ContentRootPath, "files"));
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IUserAccessor, MockUserAccessor>();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();

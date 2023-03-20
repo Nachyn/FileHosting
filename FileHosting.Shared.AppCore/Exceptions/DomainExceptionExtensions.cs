@@ -4,7 +4,7 @@ namespace FileHosting.Shared.AppCore.Exceptions;
 
 public static class DomainExceptionExtensions
 {
-    public static void ThrowIfFailure<T>(this Result<T> result)
+    public static void ThrowIfFailure(this Result result)
     {
         if (result.IsFailure)
         {

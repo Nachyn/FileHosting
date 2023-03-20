@@ -17,7 +17,7 @@ public class GetAllFoldersEndpoint : IEndpoint<IResult>
     {
         app.MapGet("api/folders", HandleAsync)
             .Produces<IReadOnlyCollection<FolderVm>>()
-            .WithTags("FolderEndpoints");
+            .WithTags(EndpointTags.FolderEndpoints);
     }
 
     public async Task<IResult> HandleAsync()

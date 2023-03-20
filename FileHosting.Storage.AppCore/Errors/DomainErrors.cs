@@ -8,6 +8,7 @@ public static class DomainErrors
     {
         public static readonly Error InvalidUserId = new("Folder.InvalidUserId", "Invalid UserId");
         public static readonly Error EmptyName = new("Folder.EmptyName", "Empty Name");
+        public static readonly Error NotFound = new("Folder.NotFound", "Folder not found");
     }
 
     public static class FolderItem

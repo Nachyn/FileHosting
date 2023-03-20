@@ -20,6 +20,17 @@ public class FolderItem : BaseEntity
 
     public int FolderId { get; private set; }
 
+    public Result SetPath(string path)
+    {
+        if (string.IsNullOrWhiteSpace(path))
+        {
+            return Result.Failure(DomainErrors.FolderItem.EmptyPath);
+        }
+
+        Path = SanitizePath(path);
+        return Result.Success();
+    }
+
     public static Result<FolderItem> Create(
         int folderId,
         string name,
@@ -43,10 +54,15 @@ public class FolderItem : BaseEntity
         return Result.Success(new FolderItem
         {
             Name = name.Trim(),
-            Path = path.Trim(),
+            Path = SanitizePath(path),
             CreatedDate = DateTime.Now,
             FolderId = folderId,
             Id = 0
         });
+    }
+
+    private static string SanitizePath(string path)
+    {
+        return string.Join('/', path.Split('\\', '/').Where(s => s.Length > 0).Select(s => s.Trim()));
     }
 }

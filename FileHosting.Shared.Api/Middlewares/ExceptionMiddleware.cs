@@ -1,5 +1,4 @@
-﻿using System.Net;
-using System.Net.Mime;
+﻿using System.Net.Mime;
 using FileHosting.Shared.Api.Exceptions;
 using FileHosting.Shared.AppCore.Exceptions;
 using FileHosting.Shared.AppCore.Interfaces;
@@ -34,14 +33,14 @@ public class ExceptionMiddleware
 
     private Task HandleExceptionAsync(HttpContext context, Exception exception)
     {
-        var code = HttpStatusCode.InternalServerError;
+        var code = StatusCodes.Status500InternalServerError;
         IDictionary<string, string[]>? result = null;
 
         switch (exception)
         {
             case ValidationException validationException:
                 result = validationException.Errors;
-                code = HttpStatusCode.BadRequest;
+                code = StatusCodes.Status400BadRequest;
                 break;
 
             case DomainException domainException:
@@ -49,7 +48,7 @@ public class ExceptionMiddleware
                 {
                     {domainException.Error.Code, new[] {domainException.Error.Message}}
                 };
-                code = HttpStatusCode.BadRequest;
+                code = StatusCodes.Status400BadRequest;
                 break;
 
             default:
@@ -58,7 +57,7 @@ public class ExceptionMiddleware
         }
 
         context.Response.ContentType = MediaTypeNames.Application.Json;
-        context.Response.StatusCode = (int) code;
+        context.Response.StatusCode = code;
 
         if (result == null || result.Count < 1)
         {

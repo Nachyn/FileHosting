@@ -1,6 +1,8 @@
 ﻿using FileHosting.Shared.AppCore.Interfaces;
 using FileHosting.Shared.Infrastructure.Logging;
+using FileHosting.Storage.AppCore.Interfaces;
 using FileHosting.Storage.Infrastructure.Data;
+using FileHosting.Storage.Infrastructure.Storage;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,9 +11,12 @@ namespace FileHosting.Storage.Infrastructure;
 
 public static class Dependencies
 {
-    public static void ConfigureStorageInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    public static void ConfigureStorageInfrastructure(this IServiceCollection services,
+        IConfiguration configuration,
+        string rootFilePath)
     {
         AddDatabase(services, configuration);
+        AddStorage(services, rootFilePath);
         services.AddSingleton(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
     }
 
@@ -28,8 +33,14 @@ public static class Dependencies
         {
             services.AddDbContext<StorageContext>(c => c.UseSqlServer(configuration.GetConnectionString("StorageContext")));
         }
-        
+
         services.AddScoped(typeof(IRepository<>), typeof(StorageRepository<>));
         services.AddScoped(typeof(IReadRepository<>), typeof(StorageRepository<>));
+    }
+
+    private static void AddStorage(IServiceCollection services, string rootFilePath)
+    {
+        services.AddSingleton(new FileStorageSettings(rootFilePath));
+        services.AddSingleton<IStorageService, FileStorageService>();
     }
 }

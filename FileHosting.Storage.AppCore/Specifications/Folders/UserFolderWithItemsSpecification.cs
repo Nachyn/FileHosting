@@ -17,7 +17,8 @@ public class UserFolderWithItemsSpecification : Specification<Folder, FolderVm>
             {
                 Id = fi.Id,
                 FolderId = fi.FolderId,
-                CreatedDate = fi.CreatedDate
+                CreatedDate = fi.CreatedDate,
+                Name = fi.Name
             }).ToList()
         }).Where(f => f.UserId == userId);
     }
