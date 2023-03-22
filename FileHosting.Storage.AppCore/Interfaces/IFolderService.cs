@@ -9,4 +9,6 @@ public interface IFolderService
     Task<IReadOnlyCollection<FolderVm>> GetAllFolders();
 
     Task AddFolderItem(int folderId, string fileName, Stream stream);
+
+    Task<FolderItemFileDto> GetFolderItemFile(int folderId, int folderItemId);
 }

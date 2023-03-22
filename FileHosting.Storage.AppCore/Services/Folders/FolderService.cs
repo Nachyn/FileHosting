@@ -59,4 +59,21 @@ public class FolderService : IFolderService
 
         await _folderRepository.SaveChangesAsync();
     }
+
+    public async Task<FolderItemFileDto> GetFolderItemFile(int folderId, int folderItemId)
+    {
+        var folderItemSpecification = new UserFolderItemSpecification(folderId, folderItemId, _userAccessor.UserId);
+        var foldedItem = await _folderRepository.FirstOrDefaultAsync(folderItemSpecification);
+
+        if (foldedItem == null)
+        {
+            throw new DomainException(DomainErrors.FolderItem.NotFound);
+        }
+
+        return new FolderItemFileDto
+        {
+            Bytes = await _storageService.GetFolderItem(foldedItem),
+            FileName = foldedItem.Name
+        };
+    }
 }

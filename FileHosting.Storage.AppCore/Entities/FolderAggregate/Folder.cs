@@ -1,5 +1,4 @@
 ﻿using FileHosting.Shared.AppCore.Entities;
-using FileHosting.Shared.AppCore.Exceptions;
 using FileHosting.Shared.AppCore.Interfaces;
 using FileHosting.Shared.AppCore.Validation;
 using FileHosting.Storage.AppCore.Errors;
