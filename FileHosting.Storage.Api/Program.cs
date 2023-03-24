@@ -8,6 +8,8 @@ using FluentValidation;
 using MinimalApi.Endpoint.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddJsonFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+    $"appsettings.{builder.Environment.EnvironmentName}.json"));
 
 // Add services to the container.
 
@@ -51,3 +53,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 app.MapEndpoints();
 
 app.Run();
+
+public partial class Program
+{
+}
