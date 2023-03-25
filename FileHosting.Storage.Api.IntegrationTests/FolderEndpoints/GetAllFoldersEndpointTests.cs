@@ -14,7 +14,7 @@ public class GetAllFoldersEndpointTests
         var folderA1 = Folder.Create("Folder A1", ProgramTest.User.Id).Value;
         var folderA2 = Folder.Create("Folder A2", ProgramTest.User.Id).Value;
 
-        var context = ProgramTest.NewContext;
+        await using var context = ProgramTest.NewContext;
         context.Add(folderA1);
         context.Add(folderA2);
         await context.SaveChangesAsync();

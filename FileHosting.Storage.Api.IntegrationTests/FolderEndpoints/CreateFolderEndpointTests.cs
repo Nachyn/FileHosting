@@ -22,7 +22,7 @@ public class CreateFolderEndpointTests
 
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
-        var context = ProgramTest.NewContext;
+        await using var context = ProgramTest.NewContext;
         var folder = await context.Folders.FirstAsync(f => f.Name == newFolderName);
 
         Assert.AreEqual(newFolderName, folder.Name);
