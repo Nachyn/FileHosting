@@ -9,7 +9,7 @@ namespace FileHosting.Storage.Api.IntegrationTests.FolderEndpoints;
 [TestFixture]
 public class AddFolderItemEndpointTests
 {
-    [SetUp]
+    [OneTimeSetUp]
     public async Task SetUp()
     {
         var folder = Folder.Create("Folder AFI", ProgramTest.User.Id).Value;

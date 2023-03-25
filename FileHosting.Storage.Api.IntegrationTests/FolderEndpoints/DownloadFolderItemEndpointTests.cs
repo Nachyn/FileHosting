@@ -7,7 +7,7 @@ namespace FileHosting.Storage.Api.IntegrationTests.FolderEndpoints;
 [TestFixture]
 public class DownloadFolderItemEndpointTests
 {
-    [SetUp]
+    [OneTimeSetUp]
     public async Task SetUp()
     {
         var folder = Folder.Create("Folder DFI", ProgramTest.User.Id).Value;

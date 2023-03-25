@@ -8,7 +8,7 @@ namespace FileHosting.Storage.Api.IntegrationTests.FolderEndpoints;
 [TestFixture]
 public class GetAllFoldersEndpointTests
 {
-    [SetUp]
+    [OneTimeSetUp]
     public async Task SetUp()
     {
         var folderA1 = Folder.Create("Folder A1", ProgramTest.User.Id).Value;

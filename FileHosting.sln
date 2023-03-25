@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileHosting.Storage.Api.Int
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileHosting.Shared.Api.IntegrationTests", "FileHosting.Shared.Api.IntegrationTests\FileHosting.Shared.Api.IntegrationTests.csproj", "{7F45644D-0F94-4FC5-9307-4D3242F3594D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileHosting.Storage.Infrastructure.Tests", "FileHosting.Storage.Infrastructure.Tests\FileHosting.Storage.Infrastructure.Tests.csproj", "{BC211620-1A6E-4E37-BF37-EEBCBBD123AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,10 @@ Global
 		{7F45644D-0F94-4FC5-9307-4D3242F3594D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F45644D-0F94-4FC5-9307-4D3242F3594D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F45644D-0F94-4FC5-9307-4D3242F3594D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC211620-1A6E-4E37-BF37-EEBCBBD123AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC211620-1A6E-4E37-BF37-EEBCBBD123AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC211620-1A6E-4E37-BF37-EEBCBBD123AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC211620-1A6E-4E37-BF37-EEBCBBD123AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{13421F91-A2AD-4781-AEF4-3BCA482BB908} = {03D1571F-F76E-425B-99B4-ED43696170F4}
@@ -71,5 +77,6 @@ Global
 		{0CFDBA7A-CE45-4AEE-85AA-146289D23A59} = {B3966D4B-FF30-4F8A-8CB2-5158A5604F65}
 		{67CA5AD6-02EA-44CE-9B95-79C31DB65E08} = {0CFDBA7A-CE45-4AEE-85AA-146289D23A59}
 		{7F45644D-0F94-4FC5-9307-4D3242F3594D} = {03D1571F-F76E-425B-99B4-ED43696170F4}
+		{BC211620-1A6E-4E37-BF37-EEBCBBD123AA} = {0CFDBA7A-CE45-4AEE-85AA-146289D23A59}
 	EndGlobalSection
 EndGlobal
