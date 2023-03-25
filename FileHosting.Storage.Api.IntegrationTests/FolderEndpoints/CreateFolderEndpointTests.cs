@@ -7,7 +7,7 @@ using NUnit.Framework;
 namespace FileHosting.Storage.Api.IntegrationTests.FolderEndpoints;
 
 [TestFixture]
-public class CreateFolderEndpointTest
+public class CreateFolderEndpointTests
 {
     [Test]
     public async Task CreatesFolder()
