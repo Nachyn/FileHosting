@@ -30,7 +30,7 @@ public class GetAllFoldersEndpointTests
         };
     }
 
-    private List<Folder> _folders;
+    private List<Folder> _folders = null!;
 
     [Test]
     public async Task ReturnsFolders()

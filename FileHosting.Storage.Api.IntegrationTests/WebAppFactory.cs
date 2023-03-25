@@ -1,4 +1,5 @@
 ﻿using FileHosting.Shared.AppCore.UserAccessor;
+using FileHosting.Storage.AppCore.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,7 +11,11 @@ public class WebAppFactory : WebApplicationFactory<Program>
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
-        builder.ConfigureServices(services => { services.AddScoped<IUserAccessor, TestUserAccessor>(); });
+        builder.ConfigureServices(services =>
+        {
+            services.AddScoped<IUserAccessor, TestUserAccessor>();
+            services.AddSingleton<IStorageService, TestStorageService>();
+        });
     }
 
     protected override IHost CreateHost(IHostBuilder builder)
