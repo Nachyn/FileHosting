@@ -14,13 +14,13 @@ builder.Configuration.AddJsonFile(Path.Combine(AppDomain.CurrentDomain.BaseDirec
 // Add services to the container.
 
 builder.Services.AddEndpoints();
-builder.Services.AddAuthorization();
+builder.Services.AddAuth();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDomainServices();
 builder.Services.ConfigureStorageInfrastructure(builder.Configuration, Path.Combine(builder.Environment.ContentRootPath, "files"));
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddScoped<IUserAccessor, MockUserAccessor>();
+builder.Services.AddScoped<IUserAccessor, UserAccessor>();
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 var app = builder.Build();

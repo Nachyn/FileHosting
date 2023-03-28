@@ -1,24 +1,21 @@
 ﻿using System.Net.Mime;
 using FileHosting.Shared.Api.FluentValidation;
+using FileHosting.Storage.Api.Consts;
 using FileHosting.Storage.AppCore.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using MinimalApi.Endpoint;
 
 namespace FileHosting.Storage.Api.FolderEndpoints;
 
-public class DownloadFolderItemEndpoint : IEndpoint<IResult, DownloadFolderItemRequest>
+public class DownloadFolderItemEndpoint : IEndpoint<IResult, DownloadFolderItemRequest, IFolderService>
 {
-    private readonly IFolderService _folderService;
-
-    public DownloadFolderItemEndpoint(IFolderService folderService)
-    {
-        _folderService = folderService;
-    }
-
     public void AddRoute(IEndpointRouteBuilder app)
     {
         app.MapGet("api/folders/{folderId}/folderItems/{folderItemId}",
-                ([FromRoute] int folderId, [FromRoute] int folderItemId, [FromServices] DownloadFolderItemRequestValidator validator) =>
+                ([FromRoute] int folderId,
+                    [FromRoute] int folderItemId,
+                    [FromServices] DownloadFolderItemRequestValidator validator,
+                    [FromServices] IFolderService folderService) =>
                 {
                     var request = new DownloadFolderItemRequest
                     {
@@ -27,15 +24,16 @@ public class DownloadFolderItemEndpoint : IEndpoint<IResult, DownloadFolderItemR
                     };
                     validator.ValidateAndThrowIfInvalid(request);
 
-                    return HandleAsync(request);
+                    return HandleAsync(request, folderService);
                 })
             .Produces(StatusCodes.Status200OK)
-            .WithTags(EndpointTags.FolderEndpoints);
+            .WithTags(EndpointTags.FolderEndpoints)
+            .RequireAuthorization(Policy.Authorized);
     }
 
-    public async Task<IResult> HandleAsync(DownloadFolderItemRequest request)
+    public async Task<IResult> HandleAsync(DownloadFolderItemRequest request, IFolderService folderService)
     {
-        var file = await _folderService.GetFolderItemFile(request.FolderId, request.FolderItemId);
+        var file = await folderService.GetFolderItemFile(request.FolderId, request.FolderItemId);
         return Results.File(file.Bytes, MediaTypeNames.Application.Octet, file.FileName);
     }
 }

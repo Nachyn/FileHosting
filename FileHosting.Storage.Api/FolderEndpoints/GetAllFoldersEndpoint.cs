@@ -1,27 +1,23 @@
-﻿using FileHosting.Storage.AppCore.Interfaces;
+﻿using FileHosting.Storage.Api.Consts;
+using FileHosting.Storage.AppCore.Interfaces;
 using FileHosting.Storage.AppCore.Services.Folders;
+using Microsoft.AspNetCore.Mvc;
 using MinimalApi.Endpoint;
 
 namespace FileHosting.Storage.Api.FolderEndpoints;
 
-public class GetAllFoldersEndpoint : IEndpoint<IResult>
+public class GetAllFoldersEndpoint : IEndpoint<IResult, IFolderService>
 {
-    private readonly IFolderService _folderService;
-
-    public GetAllFoldersEndpoint(IFolderService folderService)
-    {
-        _folderService = folderService;
-    }
-
     public void AddRoute(IEndpointRouteBuilder app)
     {
-        app.MapGet("api/folders", HandleAsync)
+        app.MapGet("api/folders", ([FromServices] IFolderService folderService) => HandleAsync(folderService))
             .Produces<IReadOnlyCollection<FolderVm>>()
-            .WithTags(EndpointTags.FolderEndpoints);
+            .WithTags(EndpointTags.FolderEndpoints)
+            .RequireAuthorization(Policy.Authorized);
     }
 
-    public async Task<IResult> HandleAsync()
+    public async Task<IResult> HandleAsync(IFolderService folderService)
     {
-        return Results.Ok(await _folderService.GetAllFolders());
+        return Results.Ok(await folderService.GetAllFolders());
     }
 }
