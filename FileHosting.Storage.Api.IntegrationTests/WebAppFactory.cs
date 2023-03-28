@@ -1,4 +1,6 @@
-﻿using FileHosting.Shared.AppCore.UserAccessor;
+﻿using FileHosting.Shared.Api.IntegrationTests;
+using FileHosting.Shared.AppCore.UserAccessor;
+using FileHosting.Storage.Api.Consts;
 using FileHosting.Storage.AppCore.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -15,6 +17,11 @@ public class WebAppFactory : WebApplicationFactory<Program>
         {
             services.AddScoped<IUserAccessor, TestUserAccessor>();
             services.AddSingleton<IStorageService, TestStorageService>();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy(Policy.Authorized, policy => policy.AddRequirements(new NothingAuthorizationRequirement()));
+            });
         });
     }
 
