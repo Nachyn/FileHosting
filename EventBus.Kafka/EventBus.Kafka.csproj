@@ -7,9 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Confluent.Kafka" Version="2.0.2" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\EventBus\EventBus.csproj" />
-      <ProjectReference Include="..\FileHosting.Shared.AppCore\FileHosting.Shared.AppCore.csproj" />
-      <ProjectReference Include="..\FileHosting.Shared.Contracts\FileHosting.Shared.Contracts.csproj" />
     </ItemGroup>
 
 </Project>

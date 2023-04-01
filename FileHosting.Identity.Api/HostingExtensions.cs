@@ -1,3 +1,5 @@
+using System.Reflection;
+using EventBus.Kafka;
 using FileHosting.Identity.Api.Data;
 using FileHosting.Identity.Api.Models;
 using FileHosting.Identity.Api.Settings;
@@ -38,6 +40,8 @@ internal static class HostingExtensions
 
         builder.Services.AddOptions();
         builder.Services.Configure<AdminSettings>(builder.Configuration.GetSection("AdminSettings"));
+        builder.Services.AddKafkaEventBus(builder.Configuration);
+        builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
         return builder.Build();
     }

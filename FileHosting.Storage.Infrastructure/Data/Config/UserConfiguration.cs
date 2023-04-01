@@ -10,6 +10,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
     {
         builder.ToTable("Users");
 
+        builder.Property(u => u.Id).ValueGeneratedNever();
+
         builder.HasIndex(u => u.UserName)
             .IsUnique();
     }

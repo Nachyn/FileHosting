@@ -19,6 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\EventBus.Kafka\EventBus.Kafka.csproj" />
       <ProjectReference Include="..\FileHosting.Shared.Api\FileHosting.Shared.Api.csproj" />
       <ProjectReference Include="..\FileHosting.Storage.AppCore\FileHosting.Storage.AppCore.csproj" />
       <ProjectReference Include="..\FileHosting.Storage.Infrastructure\FileHosting.Storage.Infrastructure.csproj" />

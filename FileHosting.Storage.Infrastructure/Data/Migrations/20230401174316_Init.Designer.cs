@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FileHosting.Storage.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(StorageContext))]
-    [Migration("20230313175057_Init")]
+    [Migration("20230401174316_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -79,10 +79,7 @@ namespace FileHosting.Storage.Infrastructure.Data.Migrations
             modelBuilder.Entity("FileHosting.Storage.AppCore.Entities.User", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("UserName")
                         .IsRequired()

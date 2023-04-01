@@ -76,10 +76,7 @@ namespace FileHosting.Storage.Infrastructure.Data.Migrations
             modelBuilder.Entity("FileHosting.Storage.AppCore.Entities.User", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("UserName")
                         .IsRequired()

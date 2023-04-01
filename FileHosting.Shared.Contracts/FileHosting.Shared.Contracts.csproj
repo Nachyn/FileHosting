@@ -8,8 +8,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\EventBus\EventBus.csproj" />
-      <ProjectReference Include="..\FileHosting.Shared.AppCore\FileHosting.Shared.AppCore.csproj" />
-      <ProjectReference Include="..\FileHosting.Shared.Contracts\FileHosting.Shared.Contracts.csproj" />
     </ItemGroup>
 
 </Project>
